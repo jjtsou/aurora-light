@@ -1,6 +1,9 @@
 import PropTypes from 'prop-types';
+import Typography from '../typography';
+import { StyledTableCell, StyledTableRow } from '../table';
 
 const Coin = ({
+  id,
   symbol,
   name,
   currentPrice,
@@ -8,17 +11,42 @@ const Coin = ({
   lowPrice24h,
   priceChangePercentage24h,
 }) => (
-  <tr>
-    <td>{symbol}</td>
-    <td>{name}</td>
-    <td>{currentPrice}</td>
-    <td>{highPrice24h}</td>
-    <td>{lowPrice24h}</td>
-    <td>{priceChangePercentage24h}</td>
-  </tr>
+  <StyledTableRow hover onClick={() => console.log(id)}>
+    <StyledTableCell>
+      <Typography tag="span" fontSize={16} color="#333">
+        {name}
+      </Typography>
+    </StyledTableCell>
+    <StyledTableCell align="center">
+      <Typography tag="span" fontSize={14} color="#333">
+        {symbol}
+      </Typography>
+    </StyledTableCell>
+    <StyledTableCell align="center">
+      <Typography tag="span" fontSize={14} color="#333">
+        {currentPrice}
+      </Typography>
+    </StyledTableCell>
+    <StyledTableCell align="center">
+      <Typography tag="span" fontSize={14} color="#333">
+        {highPrice24h}
+      </Typography>
+    </StyledTableCell>
+    <StyledTableCell align="center">
+      <Typography tag="span" fontSize={14} color="#333">
+        {lowPrice24h}
+      </Typography>
+    </StyledTableCell>
+    <StyledTableCell align="center">
+      <Typography tag="span" fontSize={14}>
+        {priceChangePercentage24h}
+      </Typography>
+    </StyledTableCell>
+  </StyledTableRow>
 );
 
 Coin.propTypes = {
+  id: PropTypes.string.isRequired,
   symbol: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   currentPrice: PropTypes.number.isRequired,

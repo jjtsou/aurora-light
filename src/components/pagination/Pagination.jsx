@@ -1,42 +1,21 @@
-import { useState } from 'react';
 import PropTypes from 'prop-types';
-import BootstrapPagination from 'react-bootstrap/Pagination';
+import Pagination from '@material-ui/lab/Pagination';
 
-const Pagination = ({ items }) => {
-  const [page, setPage] = useState(items?.[0]);
-  const handleItemClick = (value) => () => setPage(value);
-  const goToPrevItem = () => {
-    if (items[0] < page) setPage((previousPage) => previousPage - 1);
-  };
-  const goToNextItem = () => {
-    if (items.length > page) setPage((previousPage) => previousPage + 1);
-  };
+const PaginationWrapper = ({ count, page, setPage }) => {
+  if (!count) return null;
+  const handleChange = (_, value) => setPage(value);
 
-  return (
-    !!items?.length && (
-      <BootstrapPagination>
-        <BootstrapPagination.Prev onClick={goToPrevItem} />
-        {items.map((item) => (
-          <BootstrapPagination.Item
-            key={item}
-            active={item === page}
-            onClick={handleItemClick(item)}
-          >
-            {item}
-          </BootstrapPagination.Item>
-        ))}
-        <BootstrapPagination.Next onClick={goToNextItem} />
-      </BootstrapPagination>
-    )
-  );
+  return <Pagination count={count} page={page} onChange={handleChange} />;
 };
 
-Pagination.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.number),
+PaginationWrapper.propTypes = {
+  page: PropTypes.number.isRequired,
+  setPage: PropTypes.func.isRequired,
+  count: PropTypes.number,
 };
 
-Pagination.defaultProps = {
-  items: [],
+PaginationWrapper.defaultProps = {
+  count: 0,
 };
 
-export default Pagination;
+export default PaginationWrapper;
