@@ -9,13 +9,13 @@ const endpoints = {
   coins_markets: '/coins/markets',
 };
 
-export const getCoins = () =>
+export const getCoins = (page) =>
   api
     .get(endpoints.coins_markets, {
       params: {
         vs_currency: 'usd',
-        per_page: 10,
-        page: 1,
+        per_page: 12,
+        page,
       },
     })
     .then((response) => response.data)

@@ -1,5 +1,5 @@
 import ReactDOM from 'react-dom';
 import App from './app';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'fontsource-roboto';
 
 ReactDOM.render(<App />, document.getElementById('root'));
