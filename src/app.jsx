@@ -1,18 +1,24 @@
+import { useState } from 'react';
+import Typography from './components/typography';
+import Context from './context';
 import GlobalStyle from './GlobalStyle';
 import StyledApp from './app.styles';
-import Title from './components/typography';
-import Coins from './components/coins';
-import Pagination from './components/pagination';
+import { CoinHomePage } from './pages';
 
-const App = () => (
-  <StyledApp>
-    <GlobalStyle />
-    <Title tag="h2" fontSize={32}>
-      Cryptobook
-    </Title>
-    <Coins />
-    <Pagination items={[1, 2, 3, 4, 5, 6, 7, 8]} />
-  </StyledApp>
-);
+const App = () => {
+  const [page, setPage] = useState(1);
+
+  return (
+    <Context.Provider value={{ page, setPage }}>
+      <StyledApp>
+        <GlobalStyle />
+        <Typography tag="h3" fontSize={32} color="#505050">
+          Cryptobook
+        </Typography>
+        <CoinHomePage />
+      </StyledApp>
+    </Context.Provider>
+  );
+};
 
 export default App;
