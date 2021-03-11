@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 const StyledApp = styled.div`
   display: flex;
@@ -10,4 +11,8 @@ const StyledApp = styled.div`
   overflow: auto;
 `;
 
-export default StyledApp;
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`;
+
+export { StyledApp, StyledLink };
