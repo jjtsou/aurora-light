@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { HashRouter, Route } from 'react-router-dom';
 import Context from './context';
 import GlobalStyle from './GlobalStyle';
 import { StyledApp, StyledLink } from './app.styles';
@@ -13,7 +13,7 @@ const App = () => {
     <Context.Provider value={{ page, setPage }}>
       <StyledApp>
         <GlobalStyle />
-        <Router>
+        <HashRouter>
           <StyledLink to="/">
             <Typography tag="h3" fontSize={32} color="#505050">
               Cryptobook
@@ -21,7 +21,7 @@ const App = () => {
           </StyledLink>
           <Route exact path="/" component={CoinHomePage} />
           <Route path="/details/:id" component={CoinDetailsPage} />
-        </Router>
+        </HashRouter>
       </StyledApp>
     </Context.Provider>
   );
