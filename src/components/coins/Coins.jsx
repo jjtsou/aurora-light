@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '../typography';
+import Coin from '../coin';
+import { Table, StyledTableCell } from '../table';
 import { getCoins } from '../../api/coinGecko';
 import { filterCoinMarkets, getTableHeaders } from '../../utils';
-import { Table, StyledTableCell } from '../table';
-import Coin from '../coin';
 
 const Coins = ({ page }) => {
   const [coins, setCoins] = useState([]);

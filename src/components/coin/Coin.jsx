@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
+import { useHistory } from 'react-router-dom';
 import Typography from '../typography';
 import { StyledTableCell, StyledTableRow } from '../table';
+import { formatNumber } from '../../utils';
 
 const Coin = ({
   id,
@@ -10,40 +12,45 @@ const Coin = ({
   highPrice24h,
   lowPrice24h,
   priceChangePercentage24h,
-}) => (
-  <StyledTableRow hover onClick={() => console.log(id)}>
-    <StyledTableCell>
-      <Typography tag="span" fontSize={16} color="#333">
-        {name}
-      </Typography>
-    </StyledTableCell>
-    <StyledTableCell align="center">
-      <Typography tag="span" fontSize={14} color="#333">
-        {symbol}
-      </Typography>
-    </StyledTableCell>
-    <StyledTableCell align="center">
-      <Typography tag="span" fontSize={14} color="#333">
-        {currentPrice}
-      </Typography>
-    </StyledTableCell>
-    <StyledTableCell align="center">
-      <Typography tag="span" fontSize={14} color="#333">
-        {highPrice24h}
-      </Typography>
-    </StyledTableCell>
-    <StyledTableCell align="center">
-      <Typography tag="span" fontSize={14} color="#333">
-        {lowPrice24h}
-      </Typography>
-    </StyledTableCell>
-    <StyledTableCell align="center">
-      <Typography tag="span" fontSize={14}>
-        {priceChangePercentage24h}
-      </Typography>
-    </StyledTableCell>
-  </StyledTableRow>
-);
+}) => {
+  const percentageColor = priceChangePercentage24h > 0 ? '#4eaf0a' : '#dc3545';
+  const history = useHistory();
+  const handleNavigation = () => history.push(`details/${id}`);
+  return (
+    <StyledTableRow hover onClick={handleNavigation}>
+      <StyledTableCell>
+        <Typography tag="span" fontSize={16} color="#333">
+          {name}
+        </Typography>
+      </StyledTableCell>
+      <StyledTableCell align="center">
+        <Typography tag="span" fontSize={14} color="#333">
+          {symbol}
+        </Typography>
+      </StyledTableCell>
+      <StyledTableCell align="center">
+        <Typography tag="span" fontSize={14} color="#333">
+          {formatNumber(currentPrice)}
+        </Typography>
+      </StyledTableCell>
+      <StyledTableCell align="center">
+        <Typography tag="span" fontSize={14} color="#333">
+          {formatNumber(highPrice24h)}
+        </Typography>
+      </StyledTableCell>
+      <StyledTableCell align="center">
+        <Typography tag="span" fontSize={14} color="#333">
+          {formatNumber(lowPrice24h)}
+        </Typography>
+      </StyledTableCell>
+      <StyledTableCell align="center">
+        <Typography tag="span" fontSize={14} color={percentageColor}>
+          {formatNumber(priceChangePercentage24h, 'percent')}
+        </Typography>
+      </StyledTableCell>
+    </StyledTableRow>
+  );
+};
 
 Coin.propTypes = {
   id: PropTypes.string.isRequired,
