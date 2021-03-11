@@ -1,20 +1,12 @@
-import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useCoins } from '../../hooks';
 import Typography from '../typography';
 import Coin from '../coin';
 import { Table, StyledTableCell } from '../table';
-import { getCoins } from '../../api/coinGecko';
-import { filterCoinMarkets, getTableHeaders } from '../../utils';
+import { getTableHeaders } from '../../utils';
 
 const Coins = ({ page }) => {
-  const [coins, setCoins] = useState([]);
-
-  useEffect(() => {
-    getCoins(page).then((data) => {
-      const filteredCoins = filterCoinMarkets(data);
-      setCoins(filteredCoins);
-    });
-  }, [page]);
+  const { coins, isPending } = useCoins(page);
 
   const headers = getTableHeaders().map((header, i) => {
     const alignment = i === 0 ? 'left' : 'center';
@@ -50,7 +42,7 @@ const Coins = ({ page }) => {
     )
   );
 
-  return <Table headers={headers} rows={rows} />;
+  return <Table headers={headers} rows={rows} isPending={isPending} />;
 };
 
 Coins.propTypes = {
