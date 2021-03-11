@@ -1,5 +1,5 @@
-export const filterCoinMarkets = (coins = []) =>
-  coins.map(
+export const filterCoinMarkets = ({ data = [] }) =>
+  data.map(
     ({
       id,
       symbol,

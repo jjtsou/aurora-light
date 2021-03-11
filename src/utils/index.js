@@ -1,5 +1,15 @@
 import { filterCoinMarkets } from './filterCoinMarkets';
-import { getTableHeaders } from './getTableHeaders';
+import { filterCoinDetails } from './filterCoinDetails';
+import { filterChartData } from './filterChartData';
 import { formatNumber } from './formatNumber';
+import { getTableHeaders } from './getTableHeaders';
+import { getChartDuration } from './getChartDuration';
 
-export { filterCoinMarkets, getTableHeaders, formatNumber };
+export {
+  filterCoinMarkets,
+  filterCoinDetails,
+  filterChartData,
+  formatNumber,
+  getTableHeaders,
+  getChartDuration,
+};
