@@ -1,6 +1,8 @@
 export const filterCoinDetails = ({
   data: {
+    name,
     description: { en: coinDescription },
+    image: { large },
     links,
     community_data,
     developer_data,
@@ -14,11 +16,14 @@ export const filterCoinDetails = ({
     official_forum_url,
     subreddit_url: subredditUrl,
     twitter_screen_name,
+    repos_url,
   } = links;
   const homepageUrl = homepage.find((url) => !!url);
   const forumUrl = official_forum_url.find((url) => !!url);
   const twitterProfileUrl =
     twitter_screen_name && `https://twitter.com/${twitter_screen_name}`;
+  const { github } = repos_url;
+  const githubUrl = github?.find((url) => !!url) ?? '';
 
   const {
     twitter_followers: twitterFollowers,
@@ -51,40 +56,43 @@ export const filterCoinDetails = ({
 
   const priceChange = [
     {
-      period: '1d',
+      period: '1 day',
       price: price_change_percentage_24h,
     },
     {
-      period: '7d',
+      period: '7 days',
       price: price_change_percentage_7d,
     },
     {
-      period: '14d',
+      period: '14 days',
       price: price_change_percentage_14d,
     },
     {
-      period: '30d',
+      period: '30 days',
       price: price_change_percentage_30d,
     },
     {
-      period: '60d',
+      period: '60 days',
       price: price_change_percentage_60d,
     },
     {
-      period: '200d',
+      period: '200 days',
       price: price_change_percentage_200d,
     },
 
     {
-      period: '1y',
+      period: '1 year',
       price: price_change_percentage_1y,
     },
   ];
   return {
+    name,
     coinDescription,
+    image: large,
     links: {
       homepageUrl,
       forumUrl,
+      githubUrl,
     },
     socialMedia: {
       twitterProfileUrl,
@@ -100,15 +108,21 @@ export const filterCoinDetails = ({
     },
     reputationUpVotesPercentage,
     reputationDownVotesPercentage,
-    market: {
-      currentPrice,
-      priceChange,
-      highPrice24h,
-      lowPrice24h,
-      highestPrice,
-      highestPriceDate,
-      lowestPrice,
-      lowestPriceDate,
-    },
+    markets: [
+      { label: 'Current Price', value: currentPrice },
+      { label: 'High Price (24h)', value: highPrice24h },
+      { label: 'Low Price (24h)', value: lowPrice24h },
+      {
+        label: 'Highest Price',
+        value: highestPrice,
+        date: new Date(highestPriceDate).toLocaleDateString(),
+      },
+      {
+        label: 'Lowest Price',
+        value: lowestPrice,
+        date: new Date(lowestPriceDate).toLocaleDateString(),
+      },
+    ],
+    priceChange,
   };
 };
