@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
-import Typography from '../typography';
-import { StyledCoinMarket, StyledMarketWithDate } from './CoinDetails.styles';
-import { formatNumber } from '../../utils';
+import { Typography } from '../../common';
+import { StyledCoinMarket, StyledMarketWithDate } from './CoinMarket.styles';
+import { formatNumber } from '../../../utils';
 
 const CoinMarket = ({ price, label, date, color, form }) => {
   if (!price) return null;

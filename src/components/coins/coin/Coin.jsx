@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useHistory } from 'react-router-dom';
-import Typography from '../typography';
-import { StyledTableCell, StyledTableRow } from '../table';
-import { formatNumber } from '../../utils';
+import { Typography, StyledTableCell, StyledTableRow } from '../../common';
+import { formatNumber } from '../../../utils';
 
 const Coin = ({
   id,

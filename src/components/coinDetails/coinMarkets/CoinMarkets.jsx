@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
-import Typography from '../typography';
-import CoinMarket from './CoinMarket';
+import { Typography } from '../../common';
+import CoinMarket from '../coinMarket';
 import {
   StyledCoinMarkets,
   StyledMarketStatistics,
   StyledMarketPriceChange,
-} from './CoinDetails.styles';
+} from './CoinMarkets.styles';
 
 const CoinMarkets = ({ markets, priceChange }) => (
   <StyledCoinMarkets>

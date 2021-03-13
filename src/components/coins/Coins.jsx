@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import { useCoins } from '../../hooks';
-import Typography from '../typography';
-import Coin from '../coin';
-import { Table, StyledTableCell } from '../table';
+import { Typography, Table, StyledTableCell } from '../common';
+import Coin from './coin';
 import { getTableHeaders } from '../../utils';
 
 const Coins = ({ page }) => {

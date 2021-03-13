@@ -3,7 +3,7 @@ import { HashRouter, Route } from 'react-router-dom';
 import Context from './context';
 import GlobalStyle from './GlobalStyle';
 import { StyledApp, StyledLink } from './app.styles';
-import Typography from './components/typography';
+import { Typography } from './components/common';
 import { CoinHomePage, CoinDetailsPage } from './pages';
 
 const App = () => {

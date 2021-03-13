@@ -1,8 +1,10 @@
 import PropTypes from 'prop-types';
 import { useCoinDetails } from '../../hooks';
-import GithubStats from '../githubStats';
-import CoinDescription from './CoinDescription';
-import CoinMarkets from './CoinMarkets';
+import { StyledCoinDetails } from './CoinDetails.styles';
+import CoinDescription from './coinDescription';
+import CoinMarkets from './coinMarkets';
+import CoinCommunity from './coinCommunity';
+import CoinContactInfo from './coinContactInfo';
 
 const CoinDetails = ({ id }) => {
   const { coinDetails } = useCoinDetails(id);
@@ -12,32 +14,27 @@ const CoinDetails = ({ id }) => {
     coinDescription,
     image,
     name,
-    github = {},
-    links = {},
+    github,
+    links,
+    socialMedia,
     reputationUpVotesPercentage,
     reputationDownVotesPercentage,
   } = coinDetails;
 
-  const { forks, stars, subscribers, totalIssues } = github;
-  const { githubUrl } = links;
-
   console.log('coinDetails', coinDetails);
   return (
-    <>
-      <GithubStats
-        githubUrl={githubUrl}
-        forks={forks}
-        stars={stars}
-        subscribers={subscribers}
-        totalIssues={totalIssues}
+    <StyledCoinDetails>
+      {image && <img src={image} alt={name} width="80px" height="80px" />}
+      <CoinCommunity
+        links={links}
+        statistics={github}
+        positiveVotes={reputationUpVotesPercentage}
+        negativeVotes={reputationDownVotesPercentage}
       />
-      <CoinDescription
-        description={coinDescription}
-        image={image}
-        name={name}
-      />
+      <CoinDescription description={coinDescription} />
       <CoinMarkets markets={markets} priceChange={priceChange} />
-    </>
+      <CoinContactInfo links={links} socialMedia={socialMedia} />
+    </StyledCoinDetails>
   );
 };
 
