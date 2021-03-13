@@ -1,7 +1,7 @@
 import { useAppContext } from '../../hooks';
 import StyledCoinHomePage from './CoinHomePage.styles';
+import { Pagination } from '../../components/common';
 import Coins from '../../components/coins';
-import Pagination from '../../components/pagination';
 
 const CoinHomePage = () => {
   const { page, setPage } = useAppContext();

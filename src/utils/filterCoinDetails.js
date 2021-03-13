@@ -1,3 +1,8 @@
+import StarBorderOutlinedIcon from '@material-ui/icons/StarBorderOutlined';
+import NotificationsOutlinedIcon from '@material-ui/icons/NotificationsOutlined';
+import RestaurantIcon from '@material-ui/icons/Restaurant';
+import BugReportOutlinedIcon from '@material-ui/icons/BugReportOutlined';
+
 export const filterCoinDetails = ({
   data: {
     name,
@@ -100,12 +105,28 @@ export const filterCoinDetails = ({
       twitterFollowers,
       redditSubscribers,
     },
-    github: {
-      forks,
-      stars,
-      subscribers,
-      totalIssues,
-    },
+    github: [
+      {
+        name: 'Subscribers',
+        value: subscribers,
+        component: NotificationsOutlinedIcon,
+      },
+      {
+        name: 'Forks',
+        value: forks,
+        component: RestaurantIcon,
+      },
+      {
+        name: 'Issues',
+        value: totalIssues,
+        component: BugReportOutlinedIcon,
+      },
+      {
+        name: 'Stars',
+        value: stars,
+        component: StarBorderOutlinedIcon,
+      },
+    ],
     reputationUpVotesPercentage,
     reputationDownVotesPercentage,
     markets: [
