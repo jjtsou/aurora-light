@@ -1,13 +1,13 @@
 import { useCallback, useMemo } from 'react';
 import useAsyncFunction from './useAsyncFunction';
 import { getChartData } from '../api/coinGecko';
-import { filterChartData, getChartDuration } from '../utils';
+import { filterChartData, getChartTimePeriod } from '../utils';
 
 const defaultValue = {};
 
 const usePriceChart = (id) => {
   const promises = useMemo(
-    () => getChartDuration().map((days) => getChartData(id, days)),
+    () => getChartTimePeriod().map(({ value }) => getChartData(id, value)),
     [id]
   );
   const asyncFunction = useCallback(() => Promise.all(promises), [promises]);

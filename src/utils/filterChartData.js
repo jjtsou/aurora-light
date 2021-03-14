@@ -1,11 +1,17 @@
+const filterPriceData = (prices) =>
+  prices.map((price) => ({ x: price[0], y: price[1].toFixed(2) }));
+
 export const filterChartData = (data) => {
   const [oneDay, fourteenDays, oneMonth, threeMonths, oneYear, max] = data;
-  return {
-    1: oneDay.data.prices,
-    14: fourteenDays.data.prices,
-    30: oneMonth.data.prices,
-    90: threeMonths.data.prices,
-    365: oneYear.data.prices,
-    max: max.data.prices,
+
+  const filteredChartData = {
+    1: filterPriceData(oneDay.data.prices),
+    14: filterPriceData(fourteenDays.data.prices),
+    30: filterPriceData(oneMonth.data.prices),
+    90: filterPriceData(threeMonths.data.prices),
+    365: filterPriceData(oneYear.data.prices),
+    max: filterPriceData(max.data.prices),
   };
+
+  return filteredChartData;
 };

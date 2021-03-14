@@ -3,7 +3,8 @@ import { filterCoinDetails } from './filterCoinDetails';
 import { filterChartData } from './filterChartData';
 import { formatNumber } from './formatNumber';
 import { getTableHeaders } from './getTableHeaders';
-import { getChartDuration } from './getChartDuration';
+import { getChartTimePeriod } from './getChartTimePeriod';
+import { getChartConfig } from './getChartConfig';
 import { kFormatter } from './kFormatter';
 
 export {
@@ -12,6 +13,7 @@ export {
   filterChartData,
   formatNumber,
   getTableHeaders,
-  getChartDuration,
+  getChartTimePeriod,
+  getChartConfig,
   kFormatter,
 };
