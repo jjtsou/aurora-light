@@ -20,8 +20,8 @@ const CoinContactInfo = ({ links, socialMedia }) => {
   } = socialMedia;
   return (
     <StyledContactInfo>
-      <Typography color="#505050" tag="h4" fontSize={20} gutterBottom={15}>
-        Contact Us
+      <Typography color="#505050" tag="h4" fontSize={16} gutterBottom={15}>
+        Social
       </Typography>
       <StyledContactLinkWrapper>
         <CoinContactLink url={homepageUrl} icon={HomeOutlinedIcon} />

@@ -12,16 +12,6 @@ const StyledContactLinkWrapper = styled.div`
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  min-width: 20vw;
-  @media only screen and (max-width: 1200px) {
-    width: 30vw;
-  }
-  @media only screen and (max-width: 850px) {
-    width: 40vw;
-  }
-  @media only screen and (max-width: 600px) {
-    width: 70vw;
-  }
 `;
 
 export { StyledContactInfo, StyledContactLinkWrapper };

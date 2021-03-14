@@ -18,7 +18,7 @@ const CoinContactLink = ({ icon, url, followers, color }) => {
         target="_blank"
         rel="noreferrer"
       >
-        <SvgIcon fontSize="large" component={icon} />
+        <SvgIcon component={icon} />
       </StyledContactLink>
       <Typography>{kFormatter(followers)}</Typography>
     </StyledContactLinkWrapper>
@@ -29,7 +29,7 @@ const CoinContactLink = ({ icon, url, followers, color }) => {
       target="_blank"
       rel="noreferrer"
     >
-      <SvgIcon fontSize="large" component={icon} />
+      <SvgIcon component={icon} />
     </StyledContactLink>
   );
 };

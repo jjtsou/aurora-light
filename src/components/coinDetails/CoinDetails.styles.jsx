@@ -5,4 +5,5 @@ export const StyledCoinDetails = styled.div`
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  margin-bottom: 40px;
 `;
