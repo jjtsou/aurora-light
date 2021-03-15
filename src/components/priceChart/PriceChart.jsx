@@ -1,13 +1,8 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Line } from 'react-chartjs-2';
-import Skeleton from '@material-ui/lab/Skeleton';
-import {
-  StyledPriceChart,
-  StyledChartButtonContainer,
-  StyledChartButton,
-} from './PriceChart.styles';
-import { Typography } from '../common';
+import { StyledPriceChart, PriceChartSkeleton } from './PriceChart.styles';
+import { ButtonList } from '../common';
 import { usePriceChart } from '../../hooks';
 import { getChartTimePeriod, getChartConfig } from '../../utils';
 
@@ -22,31 +17,22 @@ const PriceChart = ({ id }) => {
     }
   }, [chartData, setTimePeriodData]);
 
-  const handleClick = (value) => setTimePeriodData(chartData[value]);
+  const clickHandler = (value) => setTimePeriodData(chartData[value]);
   const { data, options } = getChartConfig(timePeriodData);
 
   return (
     <StyledPriceChart>
       {isPending ? (
-        <>
-          <Skeleton width="70vw" height="65vh" variant="rect" />
-          <Skeleton width="30vw" height="5vh" variant="rect" />
-        </>
+        <PriceChartSkeleton />
       ) : (
         <>
           <Line data={data} options={options} />
-          <StyledChartButtonContainer>
-            {getChartTimePeriod().map(({ name, value }) => (
-              <StyledChartButton
-                key={`${name}_changethis`}
-                onClick={() => handleClick(value)}
-                variant="contained"
-                size="small"
-              >
-                <Typography color="#505050">{name}</Typography>
-              </StyledChartButton>
-            ))}
-          </StyledChartButtonContainer>
+          <ButtonList
+            list={getChartTimePeriod()}
+            clickHandler={clickHandler}
+            variant="contained"
+            size="small"
+          />
         </>
       )}
     </StyledPriceChart>

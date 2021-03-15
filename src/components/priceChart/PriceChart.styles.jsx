@@ -1,8 +1,7 @@
-import { styled } from '@material-ui/core/styles';
-import styledComponent from 'styled-components';
-import Button from '@material-ui/core/Button';
+import styled from 'styled-components';
+import Skeleton from '@material-ui/lab/Skeleton';
 
-const StyledPriceChart = styledComponent.div`
+const StyledPriceChart = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,15 +21,11 @@ const StyledPriceChart = styledComponent.div`
   }
 `;
 
-const StyledChartButtonContainer = styledComponent.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-`;
+const PriceChartSkeleton = () => (
+  <>
+    <Skeleton width="70vw" height="65vh" variant="rect" />
+    <Skeleton width="30vw" height="5vh" variant="rect" />
+  </>
+);
 
-const StyledChartButton = styled(Button)({
-  margin: '11px',
-});
-
-export { StyledPriceChart, StyledChartButtonContainer, StyledChartButton };
+export { StyledPriceChart, PriceChartSkeleton };

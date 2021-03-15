@@ -1,7 +1,6 @@
 import PropTypes from 'prop-types';
-import Skeleton from '@material-ui/lab/Skeleton';
 import { useCoinDetails } from '../../hooks';
-import { StyledCoinDetails } from './CoinDetails.styles';
+import { StyledCoinDetails, CoinDetailsSkeleton } from './CoinDetails.styles';
 import CoinDescription from './coinDescription';
 import CoinMarkets from './coinMarkets';
 import CoinCommunity from './coinCommunity';
@@ -25,14 +24,7 @@ const CoinDetails = ({ id }) => {
   return (
     <StyledCoinDetails>
       {isPending ? (
-        <>
-          <Skeleton width="80px" height="80px" variant="circle" />
-          <Skeleton width="33vw" height="7vh" variant="text" />
-          <Skeleton width="7vw" height="5vh" variant="rect" />
-          <Skeleton width="50vw" height="35vh" variant="text" />
-          <Skeleton width="90vw" height="20vh" variant="rect" />
-          <Skeleton width="50vw" height="20vh" variant="rect" />
-        </>
+        <CoinDetailsSkeleton />
       ) : (
         <>
           {image && <img src={image} alt={name} width="80px" height="80px" />}
