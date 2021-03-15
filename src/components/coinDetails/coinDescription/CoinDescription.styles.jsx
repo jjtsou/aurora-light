@@ -8,6 +8,7 @@ const StyledCoinDescription = styled.div`
   min-height: 12vh;
   width: 50vw;
   margin: 0 auto;
+  text-align center;
 `;
 
 export { StyledCoinDescription };

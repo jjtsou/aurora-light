@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import { GithubStats, ReputationVotes } from '../../common';
 import { StyledCoinCommunity } from './CoinCommunity.styles';
 
-const CoinCommunity = ({ positiveVotes, negativeVotes, links, statistics }) => {
-  const { githubUrl } = links;
+const CoinCommunity = ({ positiveVotes, negativeVotes, github }) => {
+  const { url, statistics } = github;
+
   return (
     <StyledCoinCommunity>
-      <GithubStats githubUrl={githubUrl} statistics={statistics} />
+      <GithubStats url={url} statistics={statistics} />
       <ReputationVotes
         positiveVotes={positiveVotes}
         negativeVotes={negativeVotes}
@@ -16,15 +17,15 @@ const CoinCommunity = ({ positiveVotes, negativeVotes, links, statistics }) => {
 };
 
 CoinCommunity.propTypes = {
-  links: PropTypes.objectOf(PropTypes.string),
-  statistics: PropTypes.arrayOf(PropTypes.object),
+  github: PropTypes.objectOf(
+    PropTypes.oneOfType([PropTypes.string, PropTypes.array])
+  ),
   positiveVotes: PropTypes.number,
   negativeVotes: PropTypes.number,
 };
 
 CoinCommunity.defaultProps = {
-  links: {},
-  statistics: [],
+  github: {},
   positiveVotes: 0,
   negativeVotes: 0,
 };

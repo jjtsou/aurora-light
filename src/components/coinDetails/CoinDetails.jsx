@@ -15,7 +15,6 @@ const CoinDetails = ({ id }) => {
     image,
     name,
     github,
-    links,
     socialMedia,
     reputationUpVotesPercentage,
     reputationDownVotesPercentage,
@@ -29,13 +28,12 @@ const CoinDetails = ({ id }) => {
         <>
           {image && <img src={image} alt={name} width="80px" height="80px" />}
           <CoinCommunity
-            links={links}
-            statistics={github}
+            github={github}
             positiveVotes={reputationUpVotesPercentage}
             negativeVotes={reputationDownVotesPercentage}
           />
           <CoinDescription description={coinDescription} />
-          <CoinContactInfo links={links} socialMedia={socialMedia} />
+          <CoinContactInfo socialMedia={socialMedia} />
           <CoinMarkets markets={markets} priceChange={priceChange} />
         </>
       )}

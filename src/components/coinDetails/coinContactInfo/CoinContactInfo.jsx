@@ -1,8 +1,5 @@
 import PropTypes from 'prop-types';
-import RedditIcon from '@material-ui/icons/Reddit';
-import TwitterIcon from '@material-ui/icons/Twitter';
-import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
-import ForumOutlinedIcon from '@material-ui/icons/ForumOutlined';
+import uuid from 'react-uuid';
 import { Typography } from '../../common';
 import {
   StyledContactInfo,
@@ -10,49 +7,31 @@ import {
 } from './CoinContactInfo.styles';
 import CoinContactLink from '../coinContactLink';
 
-const CoinContactInfo = ({ links, socialMedia }) => {
-  const { homepageUrl, forumUrl } = links;
-  const {
-    twitterProfileUrl,
-    subredditUrl,
-    twitterFollowers,
-    redditSubscribers,
-  } = socialMedia;
-  return (
-    <StyledContactInfo>
-      <Typography color="matterhorn" tag="h4" fontSize={16} gutterBottom={15}>
-        Social
-      </Typography>
-      <StyledContactLinkWrapper>
-        <CoinContactLink url={homepageUrl} icon={HomeOutlinedIcon} />
-        <CoinContactLink url={forumUrl} icon={ForumOutlinedIcon} />
+const CoinContactInfo = ({ socialMedia }) => (
+  <StyledContactInfo>
+    <Typography color="matterhorn" tag="h4" fontSize={16} gutterBottom={15}>
+      Social
+    </Typography>
+    <StyledContactLinkWrapper>
+      {socialMedia.map(({ url, icon, iconColor, followers }) => (
         <CoinContactLink
-          url={twitterProfileUrl}
-          icon={TwitterIcon}
-          followers={twitterFollowers}
-          color="dodgerBlue"
+          key={uuid()}
+          url={url}
+          icon={icon}
+          color={iconColor}
+          followers={followers}
         />
-        <CoinContactLink
-          url={subredditUrl}
-          icon={RedditIcon}
-          followers={redditSubscribers}
-          color="scarlet"
-        />
-      </StyledContactLinkWrapper>
-    </StyledContactInfo>
-  );
-};
+      ))}
+    </StyledContactLinkWrapper>
+  </StyledContactInfo>
+);
 
 CoinContactInfo.propTypes = {
-  links: PropTypes.objectOf(PropTypes.string),
-  socialMedia: PropTypes.objectOf(
-    PropTypes.oneOfType([PropTypes.string, PropTypes.number])
-  ),
+  socialMedia: PropTypes.arrayOf(PropTypes.object),
 };
 
 CoinContactInfo.defaultProps = {
-  links: {},
-  socialMedia: {},
+  socialMedia: [],
 };
 
 export default CoinContactInfo;

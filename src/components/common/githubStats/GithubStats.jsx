@@ -5,12 +5,12 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import GithubStat from './githubStat';
 import { StyledGithubStats, StyledGithubLink } from './GithubStats.styles';
 
-const GithubStats = ({ githubUrl, statistics }) => {
-  if (!githubUrl) return null;
+const GithubStats = ({ url, statistics }) => {
+  if (!url) return null;
 
   return (
     <StyledGithubStats>
-      <StyledGithubLink href={githubUrl} target="_blank" rel="noreferrer">
+      <StyledGithubLink href={url} target="_blank" rel="noreferrer">
         <SvgIcon component={GitHubIcon} />
       </StyledGithubLink>
       {statistics.map(({ name, value, component }) => (
@@ -26,12 +26,12 @@ const GithubStats = ({ githubUrl, statistics }) => {
 };
 
 GithubStats.propTypes = {
-  githubUrl: PropTypes.string,
+  url: PropTypes.string,
   statistics: PropTypes.arrayOf(PropTypes.object),
 };
 
 GithubStats.defaultProps = {
-  githubUrl: '',
+  url: '',
   statistics: [],
 };
 
