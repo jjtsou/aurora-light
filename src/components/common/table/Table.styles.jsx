@@ -10,7 +10,7 @@ const useStyles = makeStyles({
 });
 
 const StyledTableHead = styled(TableHead)({
-  background: 'whitesmoke',
+  background: '#f5f5f5',
 });
 
 const StyledTableRow = styled(TableRow)({

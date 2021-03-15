@@ -7,7 +7,7 @@ const StyledApp = styled.div`
   justify-content: flex-start;
   align-items: center;
   height: 100vh;
-  background: #fafafa;
+  background: ${({ theme }) => theme.colors.snow};
   overflow: auto;
 `;
 

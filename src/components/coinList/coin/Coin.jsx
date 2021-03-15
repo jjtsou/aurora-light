@@ -12,33 +12,34 @@ const Coin = ({
   lowPrice24h,
   priceChangePercentage24h,
 }) => {
-  const percentageColor = priceChangePercentage24h > 0 ? '#4eaf0a' : '#dc3545';
+  const percentageColor =
+    priceChangePercentage24h > 0 ? 'strongGreen' : 'amaranth';
   const history = useHistory();
   const handleNavigation = () => history.push(`details/${id}`);
   return (
     <StyledTableRow hover onClick={handleNavigation}>
       <StyledTableCell>
-        <Typography tag="span" fontSize={16} color="#333">
+        <Typography tag="span" fontSize={16} color="darkCharcoal">
           {name}
         </Typography>
       </StyledTableCell>
       <StyledTableCell align="center">
-        <Typography tag="span" fontSize={14} color="#333">
+        <Typography tag="span" fontSize={14} color="darkCharcoal">
           {symbol}
         </Typography>
       </StyledTableCell>
       <StyledTableCell align="center">
-        <Typography tag="span" fontSize={14} color="#333">
+        <Typography tag="span" fontSize={14} color="darkCharcoal">
           {formatNumber(currentPrice)}
         </Typography>
       </StyledTableCell>
       <StyledTableCell align="center">
-        <Typography tag="span" fontSize={14} color="#333">
+        <Typography tag="span" fontSize={14} color="darkCharcoal">
           {formatNumber(highPrice24h)}
         </Typography>
       </StyledTableCell>
       <StyledTableCell align="center">
-        <Typography tag="span" fontSize={14} color="#333">
+        <Typography tag="span" fontSize={14} color="darkCharcoal">
           {formatNumber(lowPrice24h)}
         </Typography>
       </StyledTableCell>

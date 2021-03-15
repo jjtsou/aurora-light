@@ -2,10 +2,11 @@ import styled from 'styled-components';
 
 const StyledLink = styled.a`
   outline: none;
-  color: ${({ color }) => color ?? 'black'};
+  color: ${({ theme, color }) => theme.colors[color] ?? theme.colors.black};
   :hover,
   :active {
-    color: ${({ actionColor }) => actionColor ?? 'grey'};
+    color: ${({ theme, actionColor }) =>
+      theme.colors[actionColor] ?? theme.colors.grey};
   }
 `;
 

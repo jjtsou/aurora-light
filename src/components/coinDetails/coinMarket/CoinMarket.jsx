@@ -7,8 +7,8 @@ const CoinMarket = ({ price, label, date, color, form }) => {
   if (!price) return null;
 
   const formattedPrice = formatNumber(price, form);
-  const indicationColor = price > 0 ? '#4eaf0a' : '#dc3545';
-  const priceColor = form === 'percent' ? indicationColor : 'black';
+  const indicationColor = price > 0 ? 'strongGreen' : 'amaranth';
+  const priceColor = form === 'percent' ? indicationColor : '';
 
   return date ? (
     <StyledCoinMarket>
@@ -42,7 +42,7 @@ CoinMarket.propTypes = {
 
 CoinMarket.defaultProps = {
   date: '',
-  color: '#505050',
+  color: 'matterhorn',
   form: 'currency',
 };
 

@@ -13,7 +13,7 @@ const CoinList = ({ page }) => {
     const alignment = i === 0 ? 'left' : 'center';
     return (
       <StyledTableCell key={uuid()} align={alignment}>
-        <Typography tag="span" fontSize={18} color="#333">
+        <Typography tag="span" fontSize={18} color="darkCharcoal">
           {header}
         </Typography>
       </StyledTableCell>

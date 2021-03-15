@@ -2,12 +2,13 @@ import styled from 'styled-components';
 import { StyledLink } from '../../common';
 
 const StyledContactLink = styled(StyledLink)`
-  color: ${({ color }) => color ?? 'black'};
+  color: ${({ theme, color }) => theme.colors[color] ?? theme.colors.black};
   padding: 0 8px;
 
   :hover,
   :active {
-    color: ${({ actionColor }) => actionColor ?? 'grey'};
+    color: ${({ theme, actionColor }) =>
+      theme.colors[actionColor] ?? theme.colors.grey};
   }
 `;
 

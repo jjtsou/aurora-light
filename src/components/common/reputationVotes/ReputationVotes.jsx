@@ -11,11 +11,11 @@ const ReputationVotes = ({ positiveVotes, negativeVotes }) => {
 
   return (
     <StyledReputationVotes>
-      <Typography color="#4eaf0a" fontSize={15} padding="7px">
+      <Typography color="strongGreen" fontSize={15} padding="7px">
         {formattedPositiveVal}
       </Typography>
       <SvgIcon color="disabled" component={ThumbsUpDownIcon} fontSize="large" />
-      <Typography color="#dc3545" fontSize={15} padding="7px">
+      <Typography color="amaranth" fontSize={15} padding="7px">
         {formattedNegativeVal}
       </Typography>
     </StyledReputationVotes>

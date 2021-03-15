@@ -6,10 +6,10 @@ import { StyledCoinDescription } from './CoinDescription.styles';
 const CoinDescription = ({ description }) =>
   description ? (
     <StyledCoinDescription>
-      <Typography tag="h4" color="#505050" fontSize={20} gutterBottom={15}>
+      <Typography tag="h4" color="matterhorn" fontSize={20} gutterBottom={15}>
         Summary
       </Typography>
-      <Typography width="50vw" color="#505050">
+      <Typography width="50vw" color="matterhorn">
         <ShowMore lines={10} more="Read more" less="Show less">
           {description}
         </ShowMore>

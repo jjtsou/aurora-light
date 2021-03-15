@@ -10,7 +10,7 @@ import {
 
 const CoinMarkets = ({ markets, priceChange }) => (
   <StyledCoinMarkets>
-    <Typography color="#505050" tag="h4" fontSize={20}>
+    <Typography color="matterhorn" tag="h4" fontSize={20}>
       Market Statistics
     </Typography>
     <StyledMarketStatistics>
@@ -18,7 +18,7 @@ const CoinMarkets = ({ markets, priceChange }) => (
         <CoinMarket key={uuid()} price={value} date={date} label={label} />
       ))}
     </StyledMarketStatistics>
-    <Typography color="#505050" tag="h4" fontSize={20}>
+    <Typography color="matterhorn" tag="h4" fontSize={20}>
       Price Change
     </Typography>
     <StyledMarketPriceChange>

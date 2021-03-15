@@ -6,7 +6,7 @@ const StyledCoinMarket = styled.div`
   justify-content: space-evenly;
   align-items: center;
   text-align: center;
-  background: #fff;
+  background: ${({ theme }) => theme.colors.white};
   border-radius: 15px;
   flex: 1 1 auto;
   max-width: 25vw;

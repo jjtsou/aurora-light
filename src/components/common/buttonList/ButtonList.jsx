@@ -13,7 +13,7 @@ const ButtonList = ({ list, clickHandler, variant, size, color }) => (
         variant={variant}
         onClick={() => clickHandler(value)}
       >
-        <Typography color="#505050">{name}</Typography>
+        <Typography color="matterhorn">{name}</Typography>
       </StyledButton>
     ))}
   </StyledButtonList>

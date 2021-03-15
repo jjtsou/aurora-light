@@ -24,8 +24,8 @@ Link.propTypes = {
 };
 
 Link.defaultProps = {
-  color: 'black',
-  actionColor: 'grey',
+  color: '',
+  actionColor: '',
 };
 
 export default Link;

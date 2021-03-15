@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const StyledGithubStat = styled.div`
-  background: #fff;
+  background: ${({ theme }) => theme.colors.white};
   box-shadow: 0 1px 3px rgb(0 0 0 / 12%), 0 1px 2px rgb(0 0 0 / 24%);
   padding: 4px 5px;
   display: flex;

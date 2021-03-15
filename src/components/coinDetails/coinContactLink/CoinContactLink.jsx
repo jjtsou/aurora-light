@@ -44,7 +44,7 @@ CoinContactLink.propTypes = {
 CoinContactLink.defaultProps = {
   url: '',
   followers: null,
-  color: 'black',
+  color: '',
 };
 
 export default CoinContactLink;

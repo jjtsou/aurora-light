@@ -37,7 +37,7 @@ Typography.propTypes = {
 
 Typography.defaultProps = {
   tag: 'span',
-  color: 'black',
+  color: '',
   fontSize: 14,
   fontFamily: 'Roboto',
   gutterBottom: 0,

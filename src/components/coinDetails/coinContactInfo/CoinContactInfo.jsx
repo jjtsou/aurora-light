@@ -20,7 +20,7 @@ const CoinContactInfo = ({ links, socialMedia }) => {
   } = socialMedia;
   return (
     <StyledContactInfo>
-      <Typography color="#505050" tag="h4" fontSize={16} gutterBottom={15}>
+      <Typography color="matterhorn" tag="h4" fontSize={16} gutterBottom={15}>
         Social
       </Typography>
       <StyledContactLinkWrapper>
@@ -30,13 +30,13 @@ const CoinContactInfo = ({ links, socialMedia }) => {
           url={twitterProfileUrl}
           icon={TwitterIcon}
           followers={twitterFollowers}
-          color="#1d9bf0"
+          color="dodgerBlue"
         />
         <CoinContactLink
           url={subredditUrl}
           icon={RedditIcon}
           followers={redditSubscribers}
-          color="#ff3300"
+          color="scarlet"
         />
       </StyledContactLinkWrapper>
     </StyledContactInfo>
