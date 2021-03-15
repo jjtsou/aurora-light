@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 import Typography from '../typography';
 import { StyledButtonList, StyledButton } from './ButtonList.styles';
 
@@ -6,7 +7,7 @@ const ButtonList = ({ list, clickHandler, variant, size, color }) => (
   <StyledButtonList>
     {list.map(({ name, value }) => (
       <StyledButton
-        key={`${name}_changethis`}
+        key={uuid()}
         color={color}
         size={size}
         variant={variant}

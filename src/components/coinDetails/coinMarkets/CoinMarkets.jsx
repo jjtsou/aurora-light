@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 import { Typography } from '../../common';
 import CoinMarket from '../coinMarket';
 import {
@@ -14,12 +15,7 @@ const CoinMarkets = ({ markets, priceChange }) => (
     </Typography>
     <StyledMarketStatistics>
       {markets.map(({ value, label, date }) => (
-        <CoinMarket
-          key={`${label}-${value}`}
-          price={value}
-          date={date}
-          label={label}
-        />
+        <CoinMarket key={uuid()} price={value} date={date} label={label} />
       ))}
     </StyledMarketStatistics>
     <Typography color="#505050" tag="h4" fontSize={20}>
@@ -27,12 +23,7 @@ const CoinMarkets = ({ markets, priceChange }) => (
     </Typography>
     <StyledMarketPriceChange>
       {priceChange.map(({ price, period }) => (
-        <CoinMarket
-          key={`${period}-${price}`}
-          price={price}
-          label={period}
-          form="percent"
-        />
+        <CoinMarket key={uuid()} price={price} label={period} form="percent" />
       ))}
     </StyledMarketPriceChange>
   </StyledCoinMarkets>

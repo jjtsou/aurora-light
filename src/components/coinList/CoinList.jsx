@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 import { useCoins } from '../../hooks';
 import { Typography, Table, StyledTableCell } from '../common';
 import Coin from './coin';
@@ -11,7 +12,7 @@ const CoinList = ({ page }) => {
   const headers = getTableHeaders().map((header, i) => {
     const alignment = i === 0 ? 'left' : 'center';
     return (
-      <StyledTableCell key={header} align={alignment}>
+      <StyledTableCell key={uuid()} align={alignment}>
         <Typography tag="span" fontSize={18} color="#333">
           {header}
         </Typography>
@@ -30,7 +31,7 @@ const CoinList = ({ page }) => {
       priceChangePercentage24h,
     }) => (
       <Coin
-        key={id}
+        key={uuid()}
         id={id}
         symbol={symbol}
         name={name}

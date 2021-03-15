@@ -1,4 +1,5 @@
 import PropTypes from 'prop-types';
+import uuid from 'react-uuid';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import GithubStat from './githubStat';
@@ -14,7 +15,7 @@ const GithubStats = ({ githubUrl, statistics }) => {
       </StyledGithubLink>
       {statistics.map(({ name, value, component }) => (
         <GithubStat
-          key={`${value}-${name}changethis`}
+          key={uuid()}
           name={name}
           value={value}
           component={component}
