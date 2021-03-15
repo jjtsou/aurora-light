@@ -1,13 +1,13 @@
 import { useAppContext } from '../../hooks';
 import StyledCoinHomePage from './CoinHomePage.styles';
 import { Pagination } from '../../components/common';
-import Coins from '../../components/coins';
+import CoinList from '../../components/coinList';
 
 const CoinHomePage = () => {
   const { page, setPage } = useAppContext();
   return (
     <StyledCoinHomePage>
-      <Coins page={page} />
+      <CoinList page={page} />
       <Pagination count={10} page={page} setPage={setPage} />
     </StyledCoinHomePage>
   );

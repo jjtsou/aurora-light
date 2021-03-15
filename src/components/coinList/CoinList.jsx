@@ -2,9 +2,10 @@ import PropTypes from 'prop-types';
 import { useCoins } from '../../hooks';
 import { Typography, Table, StyledTableCell } from '../common';
 import Coin from './coin';
+import { CoinListSkeleton } from './CoinList.styles';
 import { getTableHeaders } from '../../utils';
 
-const Coins = ({ page }) => {
+const CoinList = ({ page }) => {
   const { coins, isPending } = useCoins(page);
 
   const headers = getTableHeaders().map((header, i) => {
@@ -41,11 +42,15 @@ const Coins = ({ page }) => {
     )
   );
 
-  return <Table headers={headers} rows={rows} isPending={isPending} />;
+  return isPending ? (
+    <CoinListSkeleton />
+  ) : (
+    <Table headers={headers} rows={rows} />
+  );
 };
 
-Coins.propTypes = {
+CoinList.propTypes = {
   page: PropTypes.number.isRequired,
 };
 
-export default Coins;
+export default CoinList;
