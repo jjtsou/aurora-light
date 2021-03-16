@@ -22,7 +22,10 @@ const TableWrapper = ({ headers, rows }) => {
 
 TableWrapper.propTypes = {
   headers: PropTypes.arrayOf(PropTypes.node).isRequired,
-  rows: PropTypes.arrayOf(PropTypes.node).isRequired,
+  rows: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.object,
+  ]).isRequired,
 };
 
 export default TableWrapper;
