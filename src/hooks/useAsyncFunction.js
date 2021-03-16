@@ -28,9 +28,6 @@ const useAsyncFunction = (
     executeCall();
   }, [executeCall]);
 
-  console.log('data', data);
-  console.log('error', error);
-  console.log('isPending', isPending);
   return [data, error, isPending];
 };
 
