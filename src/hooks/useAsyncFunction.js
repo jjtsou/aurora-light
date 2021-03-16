@@ -20,7 +20,7 @@ const useAsyncFunction = (
       .catch((error) => {
         setState((prevState) => ({
           ...prevState,
-          error: null,
+          error,
           isPending: false,
         }));
         console.error(error);
