@@ -6,3 +6,5 @@ A react frontend application that provides information about cryptocurrency pric
 
 Run "npm install".  
 Run "npm run start" to start the local server.
+
+### Has been deployed on https://aurora-light.vercel.app
