@@ -20,34 +20,34 @@ const CoinList = ({ page }) => {
     );
   });
 
-  const rows = coins.map(
-    ({
-      id,
-      symbol,
-      name,
-      currentPrice,
-      highPrice24h,
-      lowPrice24h,
-      priceChangePercentage24h,
-    }) => (
-      <Coin
-        key={uuid()}
-        id={id}
-        symbol={symbol}
-        name={name}
-        currentPrice={currentPrice}
-        highPrice24h={highPrice24h}
-        lowPrice24h={lowPrice24h}
-        priceChangePercentage24h={priceChangePercentage24h}
-      />
+  const rows = isPending ? (
+    <CoinListSkeleton />
+  ) : (
+    coins.map(
+      ({
+        id,
+        symbol,
+        name,
+        currentPrice,
+        highPrice24h,
+        lowPrice24h,
+        priceChangePercentage24h,
+      }) => (
+        <Coin
+          key={uuid()}
+          id={id}
+          symbol={symbol}
+          name={name}
+          currentPrice={currentPrice}
+          highPrice24h={highPrice24h}
+          lowPrice24h={lowPrice24h}
+          priceChangePercentage24h={priceChangePercentage24h}
+        />
+      )
     )
   );
 
-  return isPending ? (
-    <CoinListSkeleton />
-  ) : (
-    <Table headers={headers} rows={rows} />
-  );
+  return <Table headers={headers} rows={rows} />;
 };
 
 CoinList.propTypes = {

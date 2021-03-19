@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 
 const useAsyncFunction = (
   asyncFunction,
@@ -6,30 +6,29 @@ const useAsyncFunction = (
   filterFunction,
   defaultValue
 ) => {
-  const [state, setState] = useState({
-    value: defaultValue,
-    error: null,
-    isPending: true,
-  });
-  useEffect(() => {
+  const [data, setData] = useState(defaultValue);
+  const [error, setError] = useState(null);
+  const [isPending, setIsPending] = useState(false);
+
+  const executeCall = useCallback(() => {
+    setIsPending(true);
     asyncFunction(dependency)
       .then((response) => {
         const filteredData = filterFunction(response);
-        setState({ value: filteredData, error: null, isPending: false });
+        setData(filteredData);
       })
-      .catch((error) => {
-        setState((prevState) => ({
-          ...prevState,
-          error,
-          isPending: false,
-        }));
-        console.error(error);
-      });
+      .catch((err) => {
+        setError(err);
+        console.error(err);
+      })
+      .finally(() => setIsPending(false));
   }, [asyncFunction, filterFunction, dependency]);
 
-  const { value, error, isPending } = state;
+  useEffect(() => {
+    executeCall();
+  }, [executeCall]);
 
-  return [value, error, isPending];
+  return [data, error, isPending];
 };
 
 export default useAsyncFunction;
